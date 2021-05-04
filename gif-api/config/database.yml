@@ -84,5 +84,5 @@ test:
 production:
   <<: *default
   database: gif_api_production
-  username: <%= ENV['pg_username'] %>
-  password: <%= ENV['pg_password'] %>
+  username: <%= ENV['PG_USERNAME'] %>
+  password: <%= ENV['PG_PASSWORD'] %>
