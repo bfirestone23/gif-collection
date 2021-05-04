@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import GifSearch from '../components/GifSearch';
 import GifList from './GifList';
+import { Container } from 'react-bootstrap';
+
 
 export default class GifListContainer extends Component {
     constructor(props) {
@@ -26,10 +28,10 @@ export default class GifListContainer extends Component {
 
     render() {
         return (
-            <div>
+            <Container>
                 <GifSearch getGifs={this.fetchData} />
                 <GifList gifs={this.state.gifs} />
-            </div>
+            </Container>
         )
     }
 }

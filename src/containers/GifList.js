@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Gif from '../components/Gif';
+import { Container } from 'react-bootstrap';
 
 export default class GifList extends Component {
     render() {
@@ -9,9 +10,9 @@ export default class GifList extends Component {
         })
 
         return (
-            <div>
+            <Container>
                 {renderGifs}
-            </div>
+            </Container>
         )
     }
 }
