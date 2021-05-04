@@ -1,12 +1,20 @@
 import React, { Component } from 'react'
-import { Container } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { addCollection, removeCollection } from '../actions/collections';
 
-export default class Library extends Component {
+class Library extends Component {
     render() {
+        console.log(this.props.collections)
         return (
-            <Container>
+            <div>
                 this is my library
-            </Container>
+            </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return { collections: state.collections }
+}
+
+export default connect(mapStateToProps, { addCollection, removeCollection })(Library);
