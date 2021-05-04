@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: gif_api_development
+  username: <%= ENV['pg_username'] %>
+  password: <%= ENV['pg_password'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -82,5 +84,5 @@ test:
 production:
   <<: *default
   database: gif_api_production
-  username: gif_api
-  password: <%= ENV['GIF_API_DATABASE_PASSWORD'] %>
+  username: <%= ENV['pg_username'] %>
+  password: <%= ENV['pg_password'] %>
