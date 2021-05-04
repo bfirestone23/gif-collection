@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import Gif from '../components/Gif';
-import { Container } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 export default class GifList extends Component {
     render() {
 
         const renderGifs = this.props.gifs.map(gif => {
-            return <Gif url={gif.url} title={gif.title} key={gif.id} src={gif.images.original.url} />
+            return <Col className="p-1" xs={4}><Gif url={gif.url} title={gif.title} key={gif.id} src={gif.images.fixed_height_downsampled.url} /></Col>
         })
 
         return (
-            <Container>
-                {renderGifs}
-            </Container>
+            <div>
+                <Row className="align-items-center">
+                    {renderGifs}
+                </Row>
+            </div>
         )
     }
 }
