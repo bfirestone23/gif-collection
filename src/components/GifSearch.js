@@ -28,8 +28,8 @@ export default class GifSearch extends Component {
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <FormControl style={{width: "50%", margin: "auto"}} placeholder="Enter your search" name="query" value={this.state.query} onChange={this.handleChange} type="text" />
-                        <Button className="submit m-3" type="submit">Submit</Button>
+                        <FormControl className="w-25 m-auto" placeholder="Enter your search" name="query" value={this.state.query} onChange={this.handleChange} type="text" />
+                        <Button className="submit m-3" type="submit">Search Giphy</Button>
                     </FormGroup>
                 </form>
             </div>
