@@ -36,12 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.gif:hover {
-  border: 2px solid black;
-}
-
-.add_gif:hover {
-  cursor: pointer;
-  border: 2px solid black;
-}
