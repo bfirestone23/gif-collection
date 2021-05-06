@@ -9,10 +9,14 @@ import Home from './containers/Home';
 import Library from './containers/Library';
 
 import { connect } from 'react-redux';
-import { addCollection, removeCollection } from './actions/collections';
-import { addGif } from './actions/gifs';
+import { selectCollection, addCollection, removeCollection, getCollections } from './actions/collections';
+import { addGif, removeGif } from './actions/gifs';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.getCollections();
+  }
 
   render() {
     return (
@@ -22,10 +26,20 @@ class App extends Component {
           <h1>GifCollection</h1>
           <hr />
           <Route exact path="/">
-            <Home addGif={this.props.addGif} collections={this.props.collections}/>
+            <Home 
+              addGif={this.props.addGif} 
+              activeCollection={this.props.activeCollection} 
+              selectCollection={this.props.selectCollection} 
+              collections={this.props.collections}
+            />
           </Route>
           <Route exact path="/library">
-            <Library collections={this.props.collections} addCollection={this.props.addCollection} removeCollection={this.props.removeCollection} />
+            <Library 
+              collections={this.props.collections} 
+              addCollection={this.props.addCollection} 
+              removeCollection={this.props.removeCollection} 
+              removeGif={this.props.removeGif} 
+            />
           </Route>
         </div>
       </Router>
@@ -36,8 +50,11 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  return { collections: state.collections }
+  return { 
+    collections: state.collections,
+    activeCollection: state.activeCollection 
+  }
 }
 
 
-export default connect(mapStateToProps, { addCollection, removeCollection, addGif })(App);
+export default connect(mapStateToProps, { selectCollection, addCollection, removeCollection, getCollections, addGif, removeGif })(App);
