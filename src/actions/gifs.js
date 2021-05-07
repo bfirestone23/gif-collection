@@ -1,3 +1,15 @@
+export const searchGifs = (query = '') => {
+    return dispatch => {
+        dispatch({ type: 'gifs/loading' })
+        fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&api_key=whWVnDKBuLMTYPEff0uPCWCqzQWP2iwv`)
+        .then(resp => resp.json())
+        .then(data => {
+            dispatch({ type: 'gif/search', gifs: data.data })
+        })
+    }
+
+}
+
 export const addGif = (gifData) => {
     return dispatch => {
         fetch(`http://localhost:3001/collections/${gifData.activeCollection}/gifs`, {
@@ -35,5 +47,11 @@ export const removeGif = (gifData) => {
                 }
             })
         })
+    }
+}
+
+export const updateCurrentPage = pageNumber => {
+    return dispatch => {
+        dispatch({ type: 'gifs/updatePage', pageNumber })
     }
 }
