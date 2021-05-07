@@ -5,10 +5,13 @@ import CollectionFormContainer from './CollectionFormContainer';
 export default class Library extends Component {
     render() {
         return (
-            <div>
-                <h3>My Library</h3>
+            <div className='Library'>
                 <CollectionFormContainer addCollection={this.props.addCollection} />
-                <CollectionsContainer collections={this.props.collections} removeGif={this.props.removeGif}/>
+                <CollectionsContainer 
+                    collections={this.props.collections} 
+                    removeCollection={this.props.removeCollection} 
+                    removeGif={this.props.removeGif}
+                />
             </div>
         )
     }
