@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import AddButton from './AddButton';
-import RemoveButton from './RemoveButton';
+import AddGifButton from './AddGIfButton';
+import RemoveGifButton from './RemoveGifButton';
 
 export default class Gif extends Component {
 
     renderButton = () => {
         if (Object.keys(this.props).includes('addGif')) {
-            return <AddButton addGif={this.props.addGif} gifData={this.props} />
+            return <AddGifButton addGif={this.props.addGif} gifData={this.props} />
         } else if (Object.keys(this.props).includes('removeGif')) {
-            return <RemoveButton removeGif={this.props.removeGif} gifData={this.props} />
+            return <RemoveGifButton removeGif={this.props.removeGif} gifData={this.props} />
         }
     }
 
