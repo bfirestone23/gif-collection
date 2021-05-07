@@ -15,7 +15,7 @@ export default class Home extends Component {
                         selectCollection={this.props.selectCollection} 
                         activeCollection={this.props.activeCollection} 
                     />
-                    <GifSearchContainer getGifs={this.fetchData} />
+                    <GifSearchContainer />
                 </Jumbotron>
                 <GifListContainer 
                     activeCollection={this.props.activeCollection} 
