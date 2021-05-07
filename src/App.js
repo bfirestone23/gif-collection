@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Switch
 } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Home from './containers/Home';
@@ -23,24 +24,26 @@ class App extends Component {
       <Router>
         <div className="App m-auto p-1">
           <NavBar />
-          <h1>GifCollection</h1>
-          <hr />
-          <Route exact path="/">
-            <Home 
-              addGif={this.props.addGif} 
-              activeCollection={this.props.activeCollection} 
-              selectCollection={this.props.selectCollection} 
-              collections={this.props.collections}
-            />
-          </Route>
-          <Route exact path="/library">
-            <Library 
-              collections={this.props.collections} 
-              addCollection={this.props.addCollection} 
-              removeCollection={this.props.removeCollection} 
-              removeGif={this.props.removeGif} 
-            />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <Home 
+                addGif={this.props.addGif} 
+                activeCollection={this.props.activeCollection} 
+                selectCollection={this.props.selectCollection} 
+                collections={this.props.collections}
+              />
+            </Route>
+            <Route path="/library">
+              <Library 
+                collections={this.props.collections} 
+                getCollections={this.props.getCollections}
+                addCollection={this.props.addCollection} 
+                removeCollection={this.props.removeCollection} 
+                removeGif={this.props.removeGif} 
+              />
+            </Route>
+          </Switch>
+          
         </div>
       </Router>
       
