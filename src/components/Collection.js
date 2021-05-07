@@ -15,7 +15,13 @@ export default class Collection extends Component {
     render() {
         return (
             <Jumbotron style={{position: 'relative'}} className="rounded m-2 w-auto">
-                <Button style={{position: 'absolute', top: '.5rem', left: '.5rem'}} onClick={() => this.props.removeCollection(this.props.collection.id)}>X</Button>
+                <Button 
+                    variant='danger' 
+                    size='sm' 
+                    style={{position: 'absolute', top: '.5rem', left: '.5rem'}} 
+                    onClick={() => this.props.removeCollection(this.props.collection.id)}>
+                        X
+                </Button>
                 <h3 className='m-2' >{this.props.collection.name}</h3>
                 {this.renderPreview()}
             </Jumbotron>
