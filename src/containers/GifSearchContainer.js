@@ -29,7 +29,6 @@ class GifSearchContainer extends Component {
         return (
             <div>
                 <GifSearch 
-                    getGifs={this.props.getGifs}
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
                     query={this.state.query} 
