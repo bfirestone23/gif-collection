@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
-import { FormControl, FormGroup, Form } from 'react-bootstrap';
+import { FormControl, FormGroup, Form, Alert, Spinner } from 'react-bootstrap';
+import { connect } from 'react-redux'
 
-export default class CollectionSelector extends Component {
+class CollectionSelector extends Component {
+
+    renderSelector = () => {
+        if (this.props.collections.length > 0 && this.props.isLoading === false) {
+            return (
+                <FormControl ref={input => this.collectionSelector = input} id="collection-select" className="m-auto w-auto" as="select" value={this.props.activeCollection} onChange={(e) => this.props.selectCollection(e)} >
+                    <option value='none' disabled/>
+                    {this.renderCollectionOptions()}
+                </FormControl>
+            )
+        } else if (this.props.isLoading === true) {
+            return <div><Spinner className='m-auto' animation='border' variant='primary' /></div>
+        } else {
+            return <Alert className='w-25 m-auto' variant='danger'>No collections available.</Alert>
+        }
+    }
 
     renderCollectionOptions = () => {
         return this.props.collections.map(collection => <option id={collection.id} key={collection.id}>{collection.name}</option>)
@@ -13,13 +29,19 @@ export default class CollectionSelector extends Component {
                 <form>
                     <FormGroup >
                         <Form.Label>Select or <a href="/library">Create</a> a Collection:</Form.Label>
-                        <FormControl id="collection-select" className="m-auto w-auto" as="select" defaultValue="none" onChange={(e) => this.props.selectCollection(e)} >
-                            <option value='none' placeholder='Select a Collection' disabled/>
-                            {this.renderCollectionOptions()}
-                        </FormControl>
+                        {this.renderSelector()}
                     </FormGroup>
                 </form>
             </div>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        activeCollection: state.activeCollection,
+        isLoading: state.isLoading
+    }
+}
+
+export default connect(mapStateToProps)(CollectionSelector);
