@@ -17,13 +17,23 @@ export const addCollection = (collection) => {
     }
 }
 
-
-export const removeCollection = (collectionId) => {
-    return { type: 'collection/remove', collectionId }
+export const removeCollection = collectionId => {
+    return dispatch => {
+        dispatch({ type: 'collection/remove', collectionId })
+        fetch(`http://localhost:3001/collections/${collectionId}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ collection: { id: collectionId } })
+        })
+    }
 }
 
 export const getCollections = () => {
     return dispatch => {
+        dispatch({ type: 'collections/loading' })
         fetch('http://localhost:3001/collections')
             .then(response => response.json())
             .then(collections => dispatch({ type: 'collections/get', collections }));
