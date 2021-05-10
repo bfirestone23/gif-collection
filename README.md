@@ -2,10 +2,6 @@
 
 A RESTful web application concept built with Ruby on Rails and React + Redux that allows users to search the GIPHY API, create GIF collections, and add/remove GIFs from those collections.
 
-## Walkthrough
-
-<iframe src="https://drive.google.com/file/d/16Y86hYM3vYk0wYdlrL82TvRt1ZbrUuFe/preview" width="640" height="480"></iframe>
-
 ## Installation
 
 Fork and clone this repository. Then, in the backend directory, install all dependencies:
