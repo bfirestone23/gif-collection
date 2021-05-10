@@ -26,6 +26,10 @@ Then start up the front-end server:
 
 You can then navigate to http://localhost:3000 to access the application.
 
+## Demo
+
+[Click here to view a demo](https://drive.google.com/file/d/16Y86hYM3vYk0wYdlrL82TvRt1ZbrUuFe/view?usp=sharing) 
+
 ## Usage
 
 Create a GIF collection on the Library page. Then, navigate to Home, select your collection from the dropdown, enter your search, and click the + button to add a GIF to the selected collection. You can then navigate back to the Library page, right click to copy the GIF address to share with friends, or click - to delete that GIF from the collection. You can also click the X on each collection to delete it.
