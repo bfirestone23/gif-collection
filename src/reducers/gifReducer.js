@@ -10,7 +10,7 @@ const gifReducer = (state =
 
     switch(action.type) {
         case 'collection/select':
-            const selectedCollection = state.collections.find(collection => collection.name === action.collection)
+            let selectedCollection = state.collections.find(collection => collection.name === action.collection)
             return { ...state, activeCollection: selectedCollection.id };
         case 'collection/add':
             return { ...state, collections: state.collections.concat(action.collection) };
