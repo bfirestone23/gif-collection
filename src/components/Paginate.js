@@ -18,7 +18,7 @@ class Paginate extends Component {
                 classes += ' active'
             }
 
-            return (<li key={number} onClick={() => this.props.updateCurrentPage(number)} className={classes}>
+            return (<li key={number} onClick={(e) => {this.props.updateCurrentPage(number); e.preventDefault()}} className={classes}>
                         <button className='page-link'>{number}</button>
                     </li>)
         })
