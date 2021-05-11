@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddGifButton from './AddGIfButton';
+import AddGifButton from './AddGifButton';
 import RemoveGifButton from './RemoveGifButton';
 
 export default class Gif extends Component {
