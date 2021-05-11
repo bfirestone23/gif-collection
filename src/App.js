@@ -33,7 +33,7 @@ class App extends Component {
                 collections={this.props.collections}
               />
             </Route>
-            <Route path="/library">
+            <Route path="/collections">
               <Library 
                 collections={this.props.collections} 
                 getCollections={this.props.getCollections}
