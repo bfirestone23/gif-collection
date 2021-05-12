@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { FormGroup, FormControl, Button } from 'react-bootstrap';
+import { FormGroup, FormControl, Button, Jumbotron } from 'react-bootstrap';
+import { connect } from 'react-redux';
 
-export default class CollectionForm extends Component {
+class CollectionForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -17,7 +18,8 @@ export default class CollectionForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addCollection(this.state.name)
+        let collection = { name: this.state.name, user: this.props.user }
+        this.props.addCollection(collection)
         this.setState({
             name: ''
         })
@@ -25,14 +27,22 @@ export default class CollectionForm extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <Jumbotron className='m-auto d-flex align-content-between flex-wrap' style={{width: '25rem', height: '13rem'}}>
+                <form className='m-auto' onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <FormControl className="w-50 m-auto" placeholder="Create a New Collection" name="name" value={this.state.name} onChange={this.handleChange} type="text" />
-                        <Button className="submit m-3" type="submit">Create</Button>
+                        <FormControl className='m-auto' placeholder='New Collection' name='name' value={this.state.name} onChange={this.handleChange} type='text' />
+                        <Button className='submit m-3' type='submit'>Create</Button>
                     </FormGroup>
                 </form>
-            </div>
+            </Jumbotron>
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        user: state.user.username
+    }
+}
+
+export default connect(mapStateToProps)(CollectionForm);
