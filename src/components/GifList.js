@@ -10,7 +10,6 @@ export default class GifList extends Component {
             return <Spinner className='m-5' animation='border' variant='primary' />
         } else {
             return this.props.gifs.map(gif => {
-                // debugger;
                 return (
                         <Gif 
                             activeCollection={this.props.activeCollection}
@@ -29,7 +28,7 @@ export default class GifList extends Component {
 
     render() {
         return (
-            <div style={{display: 'flex', flexWrap: 'wrap'}} className="justify-content-center align-items-center m-auto">
+            <div style={{display: 'flex', flexWrap: 'wrap'}} className='justify-content-center align-items-center m-auto'>
                 {this.renderGifs()}
             </div>
         )
