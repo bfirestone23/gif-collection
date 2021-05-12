@@ -1,2 +1,3 @@
 node_modules
 /gif-api/config/application.yml
+/gif-api/.byebug_history
