@@ -4,7 +4,7 @@ A RESTful web application concept built with Ruby on Rails and React + Redux tha
 
 ## Demo
 
-[Click here to view a demo!](https://drive.google.com/file/d/16Y86hYM3vYk0wYdlrL82TvRt1ZbrUuFe/view?usp=sharing) 
+[Click here to view a demo!](https://drive.google.com/file/d/1vLhc7g05_5-_sSFYo-FYLX8u3urde-tg/view?usp=sharing) 
 
 ## Installation
 
