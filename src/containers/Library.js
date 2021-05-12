@@ -1,29 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CollectionsContainer from './CollectionsContainer';
 import CollectionFormContainer from './CollectionFormContainer';
 import CollectionContainer from './CollectionContainer';
 
-export default function Library(props) {
+export default class Library extends Component {
 
-    const renderCollectionContainers = () => {
-        return props.collections.map(collection => <CollectionContainer 
-                                                            key={collection.id} 
-                                                            collection={collection} 
-                                                            removeCollection={props.removeCollection} 
-                                                            removeGif={props.removeGif}
-                                                        />)
+    renderCollectionContainers = () => {
+        return this.props.collections.map(collection => {
+            return (
+                <CollectionContainer
+                    key={collection.id} 
+                    collection={collection} 
+                    removeCollection={this.props.removeCollection} 
+                    removeGif={this.props.removeGif}
+                />
+            )
+        })
     }
 
-    return (
-        <div className='Library'>
-            <CollectionFormContainer addCollection={props.addCollection} />
-            <CollectionsContainer 
-                renderCollectionContainers={renderCollectionContainers}
-                collections={props.collections} 
-                removeCollection={props.removeCollection} 
-                removeGif={props.removeGif}
-            />
-        </div>
-    )
+    render() {
+        return (
+            <div className='Library'>
+                <CollectionFormContainer addCollection={this.props.addCollection} />
+                <CollectionsContainer 
+                    renderCollectionContainers={this.renderCollectionContainers}
+                    collections={this.props.collections} 
+                    removeCollection={this.props.removeCollection} 
+                    removeGif={this.props.removeGif}
+                />
+            </div>
+        )
+    }
 }
 
