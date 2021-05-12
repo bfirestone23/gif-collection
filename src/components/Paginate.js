@@ -39,9 +39,9 @@ class Paginate extends Component {
 
 const mapStateToProps = state => {
     return {
-        currentPage: state.currentPage,
-        itemsPerPage: state.itemsPerPage,
-        totalItems: state.searchResults.length
+        currentPage: state.gifSearch.currentPage,
+        itemsPerPage: state.gifSearch.itemsPerPage,
+        totalItems: state.gifSearch.searchResults.length
     }
 }
 
