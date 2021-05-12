@@ -9,7 +9,7 @@ export default class Home extends Component {
     render() {
         return (
             <div className='App'>   
-                <Jumbotron fluid className='rounded w-75 mx-auto my-2'>
+                <Jumbotron fluid className='rounded w-50 mx-auto my-2'>
                     <CollectionSelector 
                         collections={this.props.collections} 
                         selectCollection={this.props.selectCollection} 
