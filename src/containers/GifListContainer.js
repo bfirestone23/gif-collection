@@ -38,10 +38,10 @@ class GifListContainer extends Component {
 
 const mapStateToProps = state => {
     return {
-        isLoading: state.isLoading,
-        currentPage: state.currentPage,
-        itemsPerPage: state.itemsPerPage,
-        gifs: state.searchResults
+        isLoading: state.gifSearch.isLoading,
+        currentPage: state.gifSearch.currentPage,
+        itemsPerPage: state.gifSearch.itemsPerPage,
+        gifs: state.gifSearch.searchResults
     }
 }
 
