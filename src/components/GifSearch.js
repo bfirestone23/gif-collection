@@ -7,17 +7,17 @@ export default function GifSearch(props) {
             <form onSubmit={props.handleSubmit}>
                 <FormGroup>
                     <FormControl 
-                        className="w-50 m-auto" 
-                        placeholder="Enter your search" 
-                        name="query" 
+                        className='w-50 m-auto' 
+                        placeholder='Enter your search' 
+                        name='query' 
                         value={props.query} 
                         onChange={props.handleChange} 
-                        type="text" 
+                        type='text' 
                     />
                     <Button 
-                        className="submit m-3" 
-                        type="submit">
-                        Search Giphy
+                        className='submit m-3' 
+                        type='submit'>
+                        Search GIPHY
                     </Button>
                 </FormGroup>
             </form>
