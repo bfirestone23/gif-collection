@@ -1,6 +1,6 @@
-// import gifReducer from './gifReducer';
-// import collectionReducer from './collectionReducer';
-// import { combineReducers } from 'redux';
+import gifSearch from './gifSearch';
+import collection from './collection';
+import user from './user';
+import { combineReducers } from 'redux';
 
-// export const rootReducer = combineReducers({ gifReducer, collectionReducer })
-
+export const rootReducer = combineReducers({ collection, gifSearch, user })
