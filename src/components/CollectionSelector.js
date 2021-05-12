@@ -7,7 +7,7 @@ class CollectionSelector extends Component {
     renderSelector = () => {
         if (this.props.collections.length > 0 && this.props.isLoading === false) {
             return (
-                <FormControl ref={input => this.collectionSelector = input} id="collection-select" className="m-auto w-auto" as="select" value={this.props.activeCollection} onChange={(e) => this.props.selectCollection(e)} >
+                <FormControl ref={input => this.collectionSelector = input} id='collection-select' className='m-auto w-auto' as='select' value={this.props.activeCollection} onChange={(e) => this.props.selectCollection(e)} >
                     <option value='none' disabled/>
                     {this.renderCollectionOptions()}
                 </FormControl>
@@ -15,7 +15,7 @@ class CollectionSelector extends Component {
         } else if (this.props.isLoading === true) {
             return <div><Spinner className='m-auto' animation='border' variant='primary' /></div>
         } else {
-            return <Alert className='w-25 m-auto' variant='danger'>No collections available.</Alert>
+            return <Alert className='w-25 m-auto d-flexbox' variant='danger'>No collections available.</Alert>
         }
     }
 
@@ -28,7 +28,7 @@ class CollectionSelector extends Component {
             <div>
                 <form>
                     <FormGroup >
-                        <Form.Label>Select or <a href="/library">Create</a> a Collection:</Form.Label>
+                        <Form.Label>Select or Create a Collection:</Form.Label>
                         {this.renderSelector()}
                     </FormGroup>
                 </form>
@@ -39,8 +39,8 @@ class CollectionSelector extends Component {
 
 const mapStateToProps = state => {
     return {
-        activeCollection: state.activeCollection,
-        isLoading: state.isLoading
+        activeCollection: state.collection.activeCollection,
+        isLoading: state.collection.isLoading
     }
 }
 
