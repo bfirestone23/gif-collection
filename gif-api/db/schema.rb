@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_06_005921) do
+ActiveRecord::Schema.define(version: 2021_05_11_195643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2021_05_06_005921) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_collections_on_user_id"
   end
 
   create_table "gifs", force: :cascade do |t|
@@ -30,6 +32,12 @@ ActiveRecord::Schema.define(version: 2021_05_06_005921) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "preview"
     t.index ["collection_id"], name: "index_gifs_on_collection_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

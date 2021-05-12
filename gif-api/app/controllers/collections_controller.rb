@@ -16,8 +16,11 @@ class CollectionsController < ApplicationController
   # POST /collections
   def create
     @collection = Collection.new(collection_params)
+    @user = User.find_or_create_by(user_params)
 
-    if @collection.save
+    @collection.user = @user
+
+    if @collection.save && @user.save
       render json: @collection, status: :created, location: @collection
     else
       render json: @collection.errors, status: :unprocessable_entity
@@ -47,5 +50,9 @@ class CollectionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def collection_params
       params.require(:collection).permit(:name)
+    end
+
+    def user_params
+      params.require(:user).permit(:username)
     end
 end
