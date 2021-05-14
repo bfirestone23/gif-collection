@@ -1,6 +1,6 @@
 const collection = (state = 
     { collections: [], 
-        activeCollection: 'none', 
+        activeCollection: { name: 'none' }, 
         isLoading: false, 
         isError: false,
     }, action) => {
@@ -8,7 +8,7 @@ const collection = (state =
     switch(action.type) {
         case 'select':
             let selectedCollection = state.collections.find(collection => collection.name === action.collection)
-            return { ...state, activeCollection: selectedCollection.id };
+            return { ...state, activeCollection: selectedCollection };
         case 'add':
             return { ...state, collections: state.collections.concat(action.collection) };
         case 'remove':
@@ -40,7 +40,7 @@ const collection = (state =
 
             return { ...state, collections: updatedCollectionsState };
         default:
-            return state;
+            return { ...state, isLoading: false };
         }
     }
 
