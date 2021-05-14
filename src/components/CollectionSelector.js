@@ -5,11 +5,17 @@ import { connect } from 'react-redux'
 class CollectionSelector extends Component {
 
     renderSelector = () => {
-        if (this.props.collections.length > 0 && this.props.isLoading === false) {
+        if (this.props.collections.filter(c => c.user.username === this.props.currentUser).length > 0 && this.props.isLoading === false) {
             return (
-                <FormControl ref={input => this.collectionSelector = input} id='collection-select' className='m-auto w-auto' as='select' value={this.props.activeCollection} onChange={(e) => this.props.selectCollection(e)} >
-                    <option value='none' disabled/>
-                    {this.renderCollectionOptions()}
+                <FormControl 
+                    ref={input => this.collectionSelector = input} 
+                    id='collection-select' 
+                    className='m-auto w-25' 
+                    as='select' 
+                    value={this.props.activeCollection.name} 
+                    onChange={this.props.selectCollection} >
+                        <option value='none' disabled/>
+                        {this.renderCollectionOptions()}
                 </FormControl>
             )
         } else if (this.props.isLoading === true) {
@@ -20,7 +26,8 @@ class CollectionSelector extends Component {
     }
 
     renderCollectionOptions = () => {
-        return this.props.collections.map(collection => <option id={collection.id} key={collection.id}>{collection.name}</option>)
+        let currentUserCollections = this.props.collections.filter(c => c.user.username === this.props.currentUser);
+        return currentUserCollections.map(collection => <option id={collection.id} key={collection.id}>{collection.name}</option>)
     }
 
     render() {
@@ -28,7 +35,7 @@ class CollectionSelector extends Component {
             <div>
                 <form>
                     <FormGroup >
-                        <Form.Label>Select or Create a Collection:</Form.Label>
+                        <Form.Label>Select a Collection:</Form.Label>
                         {this.renderSelector()}
                     </FormGroup>
                 </form>
@@ -40,7 +47,8 @@ class CollectionSelector extends Component {
 const mapStateToProps = state => {
     return {
         activeCollection: state.collection.activeCollection,
-        isLoading: state.collection.isLoading
+        isLoading: state.collection.isLoading,
+        currentUser: state.user.username
     }
 }
 
