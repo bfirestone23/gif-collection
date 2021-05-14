@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import Gif from './Gif';
+import GifContainer from '../containers/GifContainer';
 import { Spinner } from 'react-bootstrap';
 
 
 export default class GifList extends Component {
 
-    renderGifs = () => {
+    renderGifContainers = () => {
         if (this.props.isLoading) {
             return <Spinner className='m-5' animation='border' variant='primary' />
         } else {
             return this.props.gifs.map(gif => {
                 return (
-                        <Gif 
+                        <GifContainer 
                             activeCollection={this.props.activeCollection}
                             addGif={this.props.addGif} 
                             url={gif.url} 
@@ -29,7 +29,7 @@ export default class GifList extends Component {
     render() {
         return (
             <div style={{display: 'flex', flexWrap: 'wrap'}} className='justify-content-center align-items-center m-auto'>
-                {this.renderGifs()}
+                {this.renderGifContainers()}
             </div>
         )
     }
