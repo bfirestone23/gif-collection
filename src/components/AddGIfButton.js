@@ -1,8 +1,7 @@
-import React, { Component} from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
 
-export default class AddGifButton extends Component {
-    render() {
+export default function AddGifButton(props) {
         return (
             <Button
                 size='sm' 
@@ -16,10 +15,9 @@ export default class AddGifButton extends Component {
                             w-auto 
                             align-text-center' 
                             
-                id={this.props.gifData.id} 
-                onClick={() => this.props.addGif(this.props.gifData)}>
+                id={props.gifData.id} 
+                onClick={() => props.addGif(props.gifData)}>
                 +
             </Button>
         )
     }
-}
