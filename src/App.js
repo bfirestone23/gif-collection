@@ -9,12 +9,12 @@ import {
 import NavBar from './components/NavBar';
 import Home from './containers/Home';
 import Library from './containers/Library';
-import Login from './components/Login';
+import LoginContainer from './containers/LoginContainer';
 import { Button } from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 import { selectCollection, addCollection, removeCollection, getCollections } from './actions/collections';
-import { addGif, removeGif } from './actions/gifs';
+import { addGif, removeGif } from './actions/collections';
 import { setStatus, logout } from './actions/users';
 
 class App extends Component {
@@ -29,7 +29,9 @@ class App extends Component {
       return (
         <div>
           <Redirect to='/login' />
-          <Route path='/login' component={Login} />
+          <Route path='/login'>
+            <LoginContainer />
+          </Route>
         </div>
         
       )
