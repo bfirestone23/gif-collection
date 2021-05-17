@@ -17316,3 +17316,159 @@ Processing by CollectionsController#destroy as JSON
 Completed 204 No Content in 51ms (ActiveRecord: 42.1ms | Allocations: 1930)
 
 
+Started GET "/" for ::1 at 2021-05-16 17:23:47 -0700
+  [1m[35m (11.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/brianfirestone/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/brianfirestone/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 32.9ms | Allocations: 315)
+Completed 200 OK in 69ms (Views: 46.8ms | ActiveRecord: 0.0ms | Allocations: 2451)
+
+
+Started GET "/collections" for ::1 at 2021-05-16 17:23:55 -0700
+Processing by CollectionsController#index as HTML
+  [1m[36mCollection Load (23.3ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (9.7ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 46]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (0.5ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 49]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (102.26ms)
+Completed 200 OK in 207ms (Views: 120.1ms | ActiveRecord: 73.2ms | Allocations: 23850)
+
+
+Started GET "/gifs" for ::1 at 2021-05-16 17:24:15 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/gifs"):
+  
+Started GET "/collections/" for ::1 at 2021-05-16 17:24:21 -0700
+Processing by CollectionsController#index as HTML
+  [1m[36mCollection Load (2.9ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (5.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 46]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (22.5ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 49]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (63.38ms)
+Completed 200 OK in 73ms (Views: 29.3ms | ActiveRecord: 43.6ms | Allocations: 5973)
+
+
+Started POST "/collections" for ::1 at 2021-05-17 12:04:50 -0700
+  [1m[35m (8.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#create as JSON
+  Parameters: {"collection"=>{"name"=>"test"}, "user"=>{"username"=>"Brian"}}
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Brian"], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mCollection Create (83.0ms)[0m  [1m[32mINSERT INTO "collections" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["created_at", "2021-05-17 19:04:50.885755"], ["updated_at", "2021-05-17 19:04:50.885755"], ["user_id", 1]]
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (50.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+[active_model_serializers]   [1m[36mGif Load (1.0ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 51]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:24:in `create'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.53ms)
+Completed 201 Created in 364ms (Views: 83.3ms | ActiveRecord: 172.7ms | Allocations: 18816)
+
+
+Started POST "/collections/51/gifs" for ::1 at 2021-05-17 12:05:07 -0700
+Processing by GifsController#create as JSON
+  Parameters: {"src"=>"https://media4.giphy.com/media/O14K3NRQ3egA8/200w_d.gif?cid=9b246f76eylc1mqirkvgef4ycbm6ukq50venyu5gobvwvbov&rid=200w_d.gif&ct=g", "url"=>"https://giphy.com/gifs/beyonce-hello-test-O14K3NRQ3egA8", "preview"=>"https://media4.giphy.com/media/O14K3NRQ3egA8/100w.gif?cid=9b246f76eylc1mqirkvgef4ycbm6ukq50venyu5gobvwvbov&rid=100w.gif&ct=g", "title"=>"Test Hello GIF", "collection_id"=>"51", "gif"=>{"url"=>"https://giphy.com/gifs/beyonce-hello-test-O14K3NRQ3egA8", "src"=>"https://media4.giphy.com/media/O14K3NRQ3egA8/200w_d.gif?cid=9b246f76eylc1mqirkvgef4ycbm6ukq50venyu5gobvwvbov&rid=200w_d.gif&ct=g", "title"=>"Test Hello GIF", "collection_id"=>"51", "preview"=>"https://media4.giphy.com/media/O14K3NRQ3egA8/100w.gif?cid=9b246f76eylc1mqirkvgef4ycbm6ukq50venyu5gobvwvbov&rid=100w.gif&ct=g"}}
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gifs_controller.rb:20:in `create'
+  [1m[36mCollection Load (3.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:20:in `create'
+  [1m[36mGif Create (7.5ms)[0m  [1m[32mINSERT INTO "gifs" ("url", "src", "title", "collection_id", "created_at", "updated_at", "preview") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["url", "https://giphy.com/gifs/beyonce-hello-test-O14K3NRQ3egA8"], ["src", "https://media4.giphy.com/media/O14K3NRQ3egA8/200w_d.gif?cid=9b246f76eylc1mqirkvgef4ycbm6ukq50venyu5gobvwvbov&rid=200w_d.gif&ct=g"], ["title", "Test Hello GIF"], ["collection_id", 51], ["created_at", "2021-05-17 19:05:07.761442"], ["updated_at", "2021-05-17 19:05:07.761442"], ["preview", "https://media4.giphy.com/media/O14K3NRQ3egA8/100w.gif?cid=9b246f76eylc1mqirkvgef4ycbm6ukq50venyu5gobvwvbov&rid=100w.gif&ct=g"]]
+  ↳ app/controllers/gifs_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gifs_controller.rb:20:in `create'
+[active_model_serializers] Rendered GifSerializer with ActiveModelSerializers::Adapter::Attributes (1.18ms)
+Completed 201 Created in 185ms (Views: 6.0ms | ActiveRecord: 64.5ms | Allocations: 7315)
+
+
+Started DELETE "/collections/51/gifs/153" for ::1 at 2021-05-17 12:05:18 -0700
+Processing by GifsController#destroy as JSON
+  Parameters: {"gif"=>{"id"=>153}, "collection_id"=>"51", "id"=>"153"}
+  [1m[36mGif Load (0.3ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."id" = $1 LIMIT $2[0m  [["id", 153], ["LIMIT", 1]]
+  ↳ app/controllers/gifs_controller.rb:44:in `set_gif'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gifs_controller.rb:38:in `destroy'
+  [1m[36mGif Destroy (10.2ms)[0m  [1m[31mDELETE FROM "gifs" WHERE "gifs"."id" = $1[0m  [["id", 153]]
+  ↳ app/controllers/gifs_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gifs_controller.rb:38:in `destroy'
+Completed 204 No Content in 38ms (ActiveRecord: 12.4ms | Allocations: 1917)
+
+
+Started DELETE "/collections/51" for ::1 at 2021-05-17 12:05:21 -0700
+Processing by CollectionsController#destroy as JSON
+  Parameters: {"collection"=>{"id"=>51}, "id"=>"51"}
+  [1m[36mCollection Load (42.0ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 51], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:47:in `set_collection'
+  [1m[36mTRANSACTION (12.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:41:in `destroy'
+  [1m[36mCollection Destroy (4.6ms)[0m  [1m[31mDELETE FROM "collections" WHERE "collections"."id" = $1[0m  [["id", 51]]
+  ↳ app/controllers/collections_controller.rb:41:in `destroy'
+  [1m[36mTRANSACTION (77.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:41:in `destroy'
+Completed 204 No Content in 149ms (ActiveRecord: 137.1ms | Allocations: 1866)
+
+
+Started POST "/collections" for ::1 at 2021-05-17 12:36:14 -0700
+Processing by CollectionsController#create as JSON
+  Parameters: {"collection"=>{"name"=>"test1"}, "user"=>{"username"=>"Brian"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Brian"], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mCollection Create (27.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test1"], ["created_at", "2021-05-17 19:36:14.807710"], ["updated_at", "2021-05-17 19:36:14.807710"], ["user_id", 1]]
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+[active_model_serializers]   [1m[36mGif Load (0.6ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 52]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:24:in `create'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (27.6ms)
+Completed 201 Created in 477ms (Views: 32.3ms | ActiveRecord: 80.8ms | Allocations: 5704)
+
+
+Started POST "/collections" for ::1 at 2021-05-17 12:36:16 -0700
+Processing by CollectionsController#create as JSON
+  Parameters: {"collection"=>{"name"=>"test2"}, "user"=>{"username"=>"Brian"}}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Brian"], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mCollection Create (1.2ms)[0m  [1m[32mINSERT INTO "collections" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test2"], ["created_at", "2021-05-17 19:36:16.340782"], ["updated_at", "2021-05-17 19:36:16.340782"], ["user_id", 1]]
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (36.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+[active_model_serializers]   [1m[36mGif Load (6.3ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 53]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:24:in `create'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.86ms)
+Completed 201 Created in 70ms (Views: 8.3ms | ActiveRecord: 45.5ms | Allocations: 3642)
+
+
+Started POST "/collections" for ::1 at 2021-05-17 12:36:17 -0700
+Processing by CollectionsController#create as JSON
+  Parameters: {"collection"=>{"name"=>"test3"}, "user"=>{"username"=>"Brian"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Brian"], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (12.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mCollection Create (20.4ms)[0m  [1m[32mINSERT INTO "collections" ("name", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test3"], ["created_at", "2021-05-17 19:36:17.764653"], ["updated_at", "2021-05-17 19:36:17.764653"], ["user_id", 1]]
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:23:in `create'
+[active_model_serializers]   [1m[36mGif Load (12.8ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 54]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:24:in `create'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.94ms)
+Completed 201 Created in 84ms (Views: 5.0ms | ActiveRecord: 53.9ms | Allocations: 3642)
+
+
