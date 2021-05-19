@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { likeCollection } from '../actions/collections';
 
-export default class Likes extends Component {
-
-    handleClick = () => {
-        this.setState({
-            count: this.state.count + 1
-        })
-    }
-
+class Likes extends Component {
 
     render() {
         return (
             <div>
                 Likes: {this.props.likes}
-                <button onClick={this.handleClick}>Like</button>
+                <button onClick={this.props.likeCollection(this.props.collectionId, this.props.likes)}>Like</button>
             </div>
         )
     }
 }
+
+export default connect(null, { likeCollection })(Likes);
