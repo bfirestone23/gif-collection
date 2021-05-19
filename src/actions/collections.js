@@ -79,3 +79,22 @@ export const removeGif = (gifData) => {
         })
     }
 }
+
+export const likeCollection = (collectionId) => {
+    return dispatch => {
+        fetch(`http://localhost:3001/collections/${collectionId}`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                collection: {
+                    id: collectionId
+                }
+            })
+        })
+            .then(resp => resp.json())
+            .then(data => dispatch({ type: 'like', data }))
+    }
+}
