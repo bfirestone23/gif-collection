@@ -1,9 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class Counter extends Component {
-    state = {
-        count: 0
-    }
+export default class Likes extends Component {
 
     handleClick = () => {
         this.setState({
@@ -15,7 +12,7 @@ export default class Counter extends Component {
     render() {
         return (
             <div>
-                {this.state.count}
+                Likes: {this.props.likes}
                 <button onClick={this.handleClick}>Like</button>
             </div>
         )
