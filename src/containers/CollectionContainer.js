@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import CollectionPreview from '../components/CollectionPreview';
 import Collection from '../components/Collection';
-import Counter from '../components/Counter';
+import Likes from '../components/Likes';
 
 class CollectionContainer extends Component {
 
@@ -34,7 +34,7 @@ class CollectionContainer extends Component {
     }
 
     renderCounter = () => {
-        return <Counter />
+        return <Likes likes={this.props.collection.likes} collectionId={this.props.collection.id}/>
     }
 
 
