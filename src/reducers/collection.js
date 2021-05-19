@@ -17,6 +17,9 @@ const collection = (state =
             return { ...state, isLoading: true };
         case 'get':
             return { ...state, collections: [...state.collections.concat(action.collections)], isLoading: false };
+        case 'like':
+            debugger;
+            break;
         case 'gif/add':
             let gifObj = { url: action.data.url, preview: action.data.preview, title: action.data.title, src: action.data.src, id: action.data.id }
 
