@@ -80,17 +80,18 @@ export const removeGif = (gifData) => {
     }
 }
 
-export const likeCollection = (collectionId) => {
+export const likeCollection = (collectionId, currentLikes) => {
     return dispatch => {
         fetch(`http://localhost:3001/collections/${collectionId}`, {
-            method: 'POST',
+            method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
                 collection: {
-                    id: collectionId
+                    id: collectionId,
+                    likes: currentLikes + 1
                 }
             })
         })
