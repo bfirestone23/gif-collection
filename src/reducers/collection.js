@@ -18,8 +18,14 @@ const collection = (state =
         case 'get':
             return { ...state, collections: [...state.collections.concat(action.collections)], isLoading: false };
         case 'like':
-            debugger;
-            break;
+            let newCollectionState = state.collections.map(c => {
+                if (c.id === action.data.id) {
+                    return { ...c, likes: action.data.likes }
+                } else {
+                    return c 
+                }
+            })
+            return { ...state, collections: newCollectionState };
         case 'gif/add':
             let gifObj = { url: action.data.url, preview: action.data.preview, title: action.data.title, src: action.data.src, id: action.data.id }
 
