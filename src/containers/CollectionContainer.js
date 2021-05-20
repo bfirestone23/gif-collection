@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import CollectionPreview from '../components/CollectionPreview';
 import Collection from '../components/Collection';
 import Likes from '../components/Likes';
+import { likeCollection } from '../actions/collections';
 
 class CollectionContainer extends Component {
 
@@ -34,7 +35,7 @@ class CollectionContainer extends Component {
     }
 
     renderCounter = () => {
-        return <Likes likes={this.props.collection.likes} collectionId={this.props.collection.id}/>
+        return <Likes likeCollection={this.props.likeCollection} likes={this.props.collection.likes} collectionId={this.props.collection.id}/>
     }
 
 
@@ -60,4 +61,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(CollectionContainer);
+export default connect(mapStateToProps, { likeCollection })(CollectionContainer);
