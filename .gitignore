@@ -1,4 +1,5 @@
 node_modules
-/gif-api/config/application.yml
-/gif-api/.byebug_history
-/gif-api/log/development.log
+gif-api/config/application.yml
+gif-api/.byebug_history
+gif-api/log
+gif-api/tmp
