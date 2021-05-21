@@ -26776,3 +26776,174 @@ Processing by CollectionsController#index as */*
 Completed 200 OK in 225ms (Views: 96.1ms | ActiveRecord: 128.1ms | Allocations: 11618)
 
 
+Started GET "/collections" for ::1 at 2021-05-21 14:30:05 -0700
+  [1m[35m (11.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (26.1ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (8.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 52]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (11.7ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 46]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (0.3ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 49]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (0.4ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 54]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (0.4ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 53]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (177.5ms)
+Completed 200 OK in 346ms (Views: 169.3ms | ActiveRecord: 146.4ms | Allocations: 32431)
+
+
+Started PATCH "/collections/52" for ::1 at 2021-05-21 14:30:16 -0700
+Processing by CollectionsController#update as JSON
+  Parameters: {"collection"=>{"id"=>52, "likes"=>101}, "id"=>"52"}
+  [1m[36mCollection Load (0.6ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 52], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:47:in `set_collection'
+  [1m[36mTRANSACTION (12.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mUser Load (29.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mCollection Update (14.8ms)[0m  [1m[33mUPDATE "collections" SET "updated_at" = $1, "likes" = $2 WHERE "collections"."id" = $3[0m  [["updated_at", "2021-05-21 21:30:16.945942"], ["likes", 101], ["id", 52]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (17.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+[active_model_serializers]   [1m[36mGif Load (0.5ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 52]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:33:in `update'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.93ms)
+Completed 200 OK in 99ms (Views: 4.1ms | ActiveRecord: 74.9ms | Allocations: 4626)
+
+
+Started GET "/collections" for ::1 at 2021-05-21 14:30:18 -0700
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (2.8ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (9.5ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 46]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (1.1ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 52]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (17.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 49]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (5.6ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 54]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (10.3ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 53]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (72.33ms)
+Completed 200 OK in 170ms (Views: 119.5ms | ActiveRecord: 49.8ms | Allocations: 11640)
+
+
+Started PATCH "/collections/46" for ::1 at 2021-05-21 14:30:42 -0700
+Processing by CollectionsController#update as JSON
+  Parameters: {"collection"=>{"id"=>46, "likes"=>95}, "id"=>"46"}
+  [1m[36mCollection Load (0.8ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:47:in `set_collection'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mCollection Update (2.1ms)[0m  [1m[33mUPDATE "collections" SET "updated_at" = $1, "likes" = $2 WHERE "collections"."id" = $3[0m  [["updated_at", "2021-05-21 21:30:42.064217"], ["likes", 95], ["id", 46]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+[active_model_serializers]   [1m[36mGif Load (5.5ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 46]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:33:in `update'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.38ms)
+Completed 200 OK in 40ms (Views: 7.5ms | ActiveRecord: 17.8ms | Allocations: 5116)
+
+
+Started PATCH "/collections/46" for ::1 at 2021-05-21 14:30:42 -0700
+Processing by CollectionsController#update as JSON
+  Parameters: {"collection"=>{"id"=>46, "likes"=>96}, "id"=>"46"}
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:47:in `set_collection'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mCollection Update (7.5ms)[0m  [1m[33mUPDATE "collections" SET "updated_at" = $1, "likes" = $2 WHERE "collections"."id" = $3[0m  [["updated_at", "2021-05-21 21:30:42.737065"], ["likes", 96], ["id", 46]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (14.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+[active_model_serializers]   [1m[36mGif Load (2.2ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 46]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:33:in `update'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.36ms)
+Completed 200 OK in 73ms (Views: 31.8ms | ActiveRecord: 29.3ms | Allocations: 5117)
+
+
+Started PATCH "/collections/49" for ::1 at 2021-05-21 14:31:07 -0700
+Processing by CollectionsController#update as JSON
+  Parameters: {"collection"=>{"id"=>49, "likes"=>89}, "id"=>"49"}
+  [1m[36mCollection Load (0.6ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:47:in `set_collection'
+  [1m[36mTRANSACTION (6.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mUser Load (37.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mCollection Update (6.6ms)[0m  [1m[33mUPDATE "collections" SET "updated_at" = $1, "likes" = $2 WHERE "collections"."id" = $3[0m  [["updated_at", "2021-05-21 21:31:07.444102"], ["likes", 89], ["id", 49]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+[active_model_serializers]   [1m[36mGif Load (2.8ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 49]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:33:in `update'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.78ms)
+Completed 200 OK in 82ms (Views: 5.6ms | ActiveRecord: 57.1ms | Allocations: 4237)
+
+
+Started PATCH "/collections/49" for ::1 at 2021-05-21 14:31:07 -0700
+Processing by CollectionsController#update as JSON
+  Parameters: {"collection"=>{"id"=>49, "likes"=>90}, "id"=>"49"}
+  [1m[36mCollection Load (0.5ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:47:in `set_collection'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mCollection Update (4.5ms)[0m  [1m[33mUPDATE "collections" SET "updated_at" = $1, "likes" = $2 WHERE "collections"."id" = $3[0m  [["updated_at", "2021-05-21 21:31:07.529754"], ["likes", 90], ["id", 49]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+[active_model_serializers]   [1m[36mGif Load (6.4ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 49]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:33:in `update'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.22ms)
+Completed 200 OK in 38ms (Views: 4.3ms | ActiveRecord: 22.2ms | Allocations: 4232)
+
+
+Started PATCH "/collections/49" for ::1 at 2021-05-21 14:31:07 -0700
+Processing by CollectionsController#update as JSON
+  Parameters: {"collection"=>{"id"=>49, "likes"=>91}, "id"=>"49"}
+  [1m[36mCollection Load (0.2ms)[0m  [1m[34mSELECT "collections".* FROM "collections" WHERE "collections"."id" = $1 LIMIT $2[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:47:in `set_collection'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mCollection Update (1.2ms)[0m  [1m[33mUPDATE "collections" SET "updated_at" = $1, "likes" = $2 WHERE "collections"."id" = $3[0m  [["updated_at", "2021-05-21 21:31:07.626505"], ["likes", 91], ["id", 49]]
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/collections_controller.rb:32:in `update'
+[active_model_serializers]   [1m[36mGif Load (0.4ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 49]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:33:in `update'
+[active_model_serializers] Rendered CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.75ms)
+Completed 200 OK in 18ms (Views: 3.0ms | ActiveRecord: 8.3ms | Allocations: 4232)
+
+
