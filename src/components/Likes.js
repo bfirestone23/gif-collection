@@ -7,9 +7,9 @@ export default class Likes extends Component {
         return (
             <div>
                 <br />
-                Likes: {this.props.likes}
+                <b>Likes:</b> {this.props.likes}
                 <br />
-                <Button onClick={() => this.props.likeCollection(this.props.collectionId, this.props.likes)}>Like</Button>
+                <Button size='sm' variant='outline-success' onClick={() => this.props.likeCollection(this.props.collectionId, this.props.likes)}>Like</Button>
             </div>
         )
     }
