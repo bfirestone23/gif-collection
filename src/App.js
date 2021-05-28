@@ -1,7 +1,6 @@
 import './App.css';
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
   Route,
   Switch,
   Redirect
@@ -11,7 +10,7 @@ import Home from './containers/Home';
 import Library from './containers/Library';
 import LoginContainer from './containers/LoginContainer';
 import { Button } from 'react-bootstrap';
-
+import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { selectCollection, addCollection, removeCollection, getCollections } from './actions/collections';
 import { addGif, removeGif } from './actions/collections';
@@ -24,7 +23,7 @@ class App extends Component {
     this.props.setStatus();
   }
 
-  displayLogin = () => {
+  handleLogin = () => {
     if (this.props.status === 'idle') {
       return (
         <div>
@@ -36,17 +35,19 @@ class App extends Component {
         
       )
     }
-    if (this.props.status === 'pending') {
-      return <div>Loading...</div>
+    if (this.props.status === 'resolved' && this.props.history.location.pathname === '/login') {
+      return (
+        <Redirect to='/home' />
+      )
     }
     if (this.props.status === 'resolved') {
       return (
         <div>
-          <Redirect to='/home' />
           <NavBar />
           <Route exact path='/home'>
             <div className='mb-5'>
-              <h4 style={{color: 'white'}}>Welcome, {this.props.username}!</h4><Button size='sm' onClick={this.props.logout}>Log Out</Button>
+              <h4 style={{color: 'white'}}>Welcome, {this.props.username}!</h4>
+              <Button size='sm' onClick={this.props.logout}>Log Out</Button>
             </div>
             <Home 
               addGif={this.props.addGif} 
@@ -67,25 +68,15 @@ class App extends Component {
         </div>
       )
     }
-    if (this.props.status === 'rejected') {
-      return (
-        <div>
-          <div>Oh no, you aren't logged in.</div>
-        </div>
-      )
-    }
   }
 
   render() {
     return (
-      <Router>
         <div className='App m-auto p-1'>
           <Switch>
-            {this.displayLogin()}
+            {this.handleLogin()}
           </Switch>
         </div>
-      </Router>
-      
     );
   }
   
@@ -101,4 +92,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps, { setStatus, logout, selectCollection, addCollection, removeCollection, getCollections, addGif, removeGif })(App);
+export default withRouter(connect(mapStateToProps, { setStatus, logout, selectCollection, addCollection, removeCollection, getCollections, addGif, removeGif })(App));
