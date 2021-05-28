@@ -7,7 +7,7 @@ export default function Collection(props) {
             {props.renderButton()}
             <h3>{props.collection.name}</h3><h6> by {props.collection.user.username}</h6> 
             {props.renderPreview()}
-            {props.renderCounter()}
+            {props.renderLikes()}
         </Jumbotron>
     )
 };
