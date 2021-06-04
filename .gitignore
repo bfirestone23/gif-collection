@@ -3,3 +3,4 @@ node_modules
 /gif-api/.byebug_history
 /gif-api/log/development.log
 /gif-api/tmp
+/gif-api/.DS_Store
