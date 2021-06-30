@@ -28475,3 +28475,16 @@ Processing by CollectionsController#index as */*
 Completed 200 OK in 72ms (Views: 33.5ms | ActiveRecord: 37.8ms | Allocations: 3753)
 
 
+Started GET "/collections" for ::1 at 2021-06-04 15:02:04 -0700
+  [1m[35m (5.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CollectionsController#index as */*
+  [1m[36mCollection Load (11.7ms)[0m  [1m[34mSELECT "collections".* FROM "collections"[0m
+  ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mGif Load (9.0ms)[0m  [1m[34mSELECT "gifs".* FROM "gifs" WHERE "gifs"."collection_id" = $1[0m  [["collection_id", 46]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/collections_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (90.76ms)
+Completed 200 OK in 258ms (Views: 103.2ms | ActiveRecord: 119.0ms | Allocations: 24563)
+
+

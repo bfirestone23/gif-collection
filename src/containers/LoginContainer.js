@@ -1,36 +1,36 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { login } from '../actions/users';
-import LoginForm from '../components/LoginForm';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { login } from "../actions/users";
+import LoginForm from "../components/LoginForm";
 
 class LoginContainer extends Component {
-    state = { 
-        username: '' 
-    }
+  state = {
+    username: "",
+  };
 
-    handleChange = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.login(this.state);
-        this.setState({
-            username: ''
-        })
-    }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.login(this.state);
+    this.setState({
+      username: "",
+    });
+  };
 
-    render() {
-        return (
-            <LoginForm 
-                handleChange={this.handleChange} 
-                handleSubmit={this.handleSubmit}
-                username={this.state.username}
-            />
-        )
-    }
+  render() {
+    return (
+      <LoginForm
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        username={this.state.username}
+      />
+    );
+  }
 }
 
-export default connect(null, { login })(LoginContainer)
+export default connect(null, { login })(LoginContainer);
