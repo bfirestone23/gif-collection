@@ -1,6 +1,6 @@
 import React from "react";
-import DisplayLikes from "../components/DisplayLikes";
-import LikeButton from "../components/LikeButton";
+import DisplayLikes from "../../components/likes/DisplayLikes";
+import LikeButton from "../../components/likes/LikeButton";
 
 export default function LikesContainer(props) {
   return (

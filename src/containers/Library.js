@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import CollectionsContainer from "./CollectionsContainer";
-import CollectionFormContainer from "./CollectionFormContainer";
-import CollectionContainer from "./CollectionContainer";
+import CollectionsContainer from "./collection/CollectionsContainer";
+import CollectionFormContainer from "./collection/CollectionFormContainer";
+import CollectionContainer from "./collection/CollectionContainer";
 
 export default class Library extends Component {
   renderCollectionContainers = () => {

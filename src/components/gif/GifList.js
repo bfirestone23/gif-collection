@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import GifContainer from "../containers/GifContainer";
+import GifContainer from "../../containers/gif/GifContainer";
 import { Spinner } from "react-bootstrap";
 
 export default class GifList extends Component {

@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function DisplayLikes(props) {
   return (
     <div className="m-2">

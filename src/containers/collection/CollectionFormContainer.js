@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import CollectionForm from "../components/CollectionForm";
+import CollectionForm from "../../components/collection/CollectionForm";
 
 class CollectionFormContainer extends Component {
   constructor(props) {

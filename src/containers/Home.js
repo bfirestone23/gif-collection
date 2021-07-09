@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import GifListContainer from "./GifListContainer";
-import GifSearchContainer from "./GifSearchContainer";
-import CollectionSelector from "../components/CollectionSelector";
+import GifListContainer from "./gif/GifListContainer";
+import GifSearchContainer from "./gif/GifSearchContainer";
+import CollectionSelector from "../components/collection/CollectionSelector";
 import { Jumbotron } from "react-bootstrap";
 
 export default class Home extends Component {

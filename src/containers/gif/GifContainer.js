@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import AddGifButton from "../components/AddGifButton";
-import RemoveGifButton from "../components/RemoveGifButton";
-import Gif from "../components/Gif";
+import AddGifButton from "../../components/collection/AddGifButton";
+import RemoveGifButton from "../../components/collection/RemoveGifButton";
+import Gif from "../../components/gif/Gif";
 import { Spinner } from "react-bootstrap";
 
 class GifContainer extends Component {

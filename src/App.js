@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Home from "./containers/Home";
 import Library from "./containers/Library";
-import LoginContainer from "./containers/LoginContainer";
+import LoginContainer from "./containers/user/LoginContainer";
 import { Button } from "react-bootstrap";
 import { withRouter } from "react-router";
 import { connect } from "react-redux";

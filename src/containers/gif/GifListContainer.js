@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import GifList from "../components/GifList";
-import Paginate from "../components/Paginate";
+import GifList from "../../components/gif/GifList";
+import Paginate from "../../components/Paginate";
 import { connect } from "react-redux";
 
 class GifListContainer extends Component {

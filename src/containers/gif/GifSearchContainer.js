@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import GifSearch from "../components/GifSearch";
+import GifSearch from "../../components/gif/GifSearch";
 import { connect } from "react-redux";
-import { searchGifs } from "../actions/gifs";
+import { searchGifs } from "../../actions/gifs";
 
 class GifSearchContainer extends Component {
   constructor(props) {

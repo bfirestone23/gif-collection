@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Button } from "react-bootstrap";
-import CollectionPreview from "../components/CollectionPreview";
-import Collection from "../components/Collection";
-import LikesContainer from "./LikesContainer";
-import { likeCollection } from "../actions/collections";
+import CollectionPreview from "../../components/collection/CollectionPreview";
+import Collection from "../../components/collection/Collection";
+import LikesContainer from "../likes/LikesContainer";
+import { likeCollection } from "../../actions/collections";
 
 class CollectionContainer extends Component {
   renderPreview = () => {
